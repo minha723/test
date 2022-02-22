@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>오늘은 무엇을 먹을까?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: 'Nanum Pen Script', cursive;
+            font-size: 25px;
+        }
+
+        .food {
+            width: 700px;
+            margin: auto;
+        }
+
+
+        .btn {
+            background-color: cornflowerblue;
+            margin: auto;
+            display: block;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+        .btn-yellow{
+            background-color: yellow;
+        }
+        .btn-start{
+            margin: auto;
+            display: block;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+
+    </style>
+    <script>
+
+        function prefCheck() {
+            $.ajax({
+                type: 'GET',
+                url: '/pref',
+                data: {},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+
+        function prefCheck2() {
+            $.ajax({
+                type: "POST",
+                url: "/pref2",
+                data: {spicy_give: 'y'},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+
+        function prefCheck3() {
+            $.ajax({
+                type: "POST",
+                url: "/pref3",
+                data: {spicy_give:'n'},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+        function prefCheck4() {
+            $.ajax({
+                type: "POST",
+                url: "/pref4",
+                data: {soup_give: 'y'},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+
+        function prefCheck5() {
+            $.ajax({
+                type: "POST",
+                url: "/pref5",
+                data: {soup_give:'n'},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+        function refresh() {
+            $.ajax({
+                type: "POST",
+                url: "/pref6",
+                data: {},
+                success: function (response) {
+                    alert(response['msg']);
+                }
+            })
+        }
+
+    </script>
+</head>
+
+<body>
+
+<div class="food">
+    오늘도 어떤 음식을 먹을지 정하기 힘들죠? 저희와 함께 무엇을 먹을지 정하러 갑시다~
+
+    <button class="btn-start"><a href="test/test.html"> 테스트 하러 가기</a></button>
+
+</div>
+
+</body>
+
+</html>
