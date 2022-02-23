@@ -22,8 +22,8 @@
         .food {
             width: 700px;
             margin: auto;
+            text-align: center;
         }
-
 
         .btn {
             background-color: cornflowerblue;
@@ -35,9 +35,17 @@
         .btn-yellow{
             background-color: yellow;
         }
+        .card {
+            display: block;
+            margin: auto;
+        }
 
     </style>
     <script>
+
+            $(document).ready(function () {
+                prefCheck();
+            });
 
         function prefCheck() {
             $.ajax({
@@ -45,7 +53,18 @@
                 url: '/pref',
                 data: {},
                 success: function (response) {
-                    alert(response['msg']);
+                    let name = response['foodName']
+                    let img_url = response['foodImgUrl']
+
+                    let temp_html = `<div class="card" style="width: 18rem;">
+                                        <img src="${img_url}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text">당신에게 필요한 오늘의 음식은 바로 <span style="color:red; font-weight:blod" > ${name} </span> 입니다.<br>다시 테스트 하시려면 아래 새로고침 버튼을 눌러주세요.</p>
+                                        </div>
+                                    </div>`
+
+                    $("#myFood").append(temp_html)
+
                 }
             })
         }
@@ -98,7 +117,6 @@
                 url: "/pref6",
                 data: {},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -110,16 +128,10 @@
 <div class="food">
     오늘도 어떤 음식을 먹을지 정하기 힘들죠? 저희와 함께 무엇을 먹을지 정하러 갑시다~
 
-    <div>
-        <h3> Q2. 국물 음식이 당기시나요? </h3>
-        <div class="d-grid gap-2">
-            <button onclick="prefCheck4()" class="btn btn-yellow" type="button"> 1. 국물은 항상 옳다. 나는야 국물파~</button>
-            <button onclick="prefCheck5()" class="btn btn-yellow" type="button"> 2. 국물 No No No! 저는 국물이 필요하지 않아요.</button>
-        </div>
+    <div id=myFood class="card" style="width: 18rem;">
     </div>
 
-    <button onclick="prefCheck()" class="btn btn-primary" type="submit">음식 확인하기!</button>
-    <button onclick="refresh()" class="btn btn-primary" type="submit">새로고침!</button>
+    <button onclick="refresh()" class="btn btn-primary" type="submit"><a href="http://localhost:5000/">새로고침!</a></button>
 
 </div>
 

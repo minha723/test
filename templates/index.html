@@ -22,6 +22,7 @@
         .food {
             width: 700px;
             margin: auto;
+            text-align: center;
         }
 
 
@@ -32,10 +33,12 @@
             margin-top: 25px;
             border-radius: 10px;
         }
-        .btn-yellow{
+
+        .btn-yellow {
             background-color: yellow;
         }
-        .btn-start{
+
+        .btn-start {
             margin: auto;
             display: block;
             margin-top: 25px;
@@ -71,12 +74,13 @@
             $.ajax({
                 type: "POST",
                 url: "/pref3",
-                data: {spicy_give:'n'},
+                data: {spicy_give: 'n'},
                 success: function (response) {
                     alert(response['msg']);
                 }
             })
         }
+
         function prefCheck4() {
             $.ajax({
                 type: "POST",
@@ -92,12 +96,13 @@
             $.ajax({
                 type: "POST",
                 url: "/pref5",
-                data: {soup_give:'n'},
+                data: {soup_give: 'n'},
                 success: function (response) {
                     alert(response['msg']);
                 }
             })
         }
+
         function refresh() {
             $.ajax({
                 type: "POST",
@@ -117,6 +122,8 @@
 <div class="food">
     오늘도 어떤 음식을 먹을지 정하기 힘들죠? 저희와 함께 무엇을 먹을지 정하러 갑시다~
 
+    <img src="https://img.freepik.com/free-vector/set-of-japanese-food-isolated-on-white-background-graphic-design-icon-set-for-advertisement-vector-illustration_1150-55404.jpg?size=626&ext=jpg&ga=GA1.1.1098697193.1642636800"
+         class="rounded mx-auto d-block" alt="...">
     <button class="btn-start"><a href="test/test.html"> 테스트 하러 가기</a></button>
 
 </div>

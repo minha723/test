@@ -22,6 +22,7 @@
         .food {
             width: 700px;
             margin: auto;
+            text-align: center;
         }
 
 
@@ -82,7 +83,6 @@
                 url: "/pref4",
                 data: {soup_give: 'y'},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -93,7 +93,6 @@
                 url: "/pref5",
                 data: {soup_give:'n'},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -118,13 +117,10 @@
     <div>
         <h3> Q2. 국물 음식이 당기시나요? </h3>
         <div class="d-grid gap-2">
-            <button onclick="prefCheck4()" class="btn btn-yellow" type="button"> 1. 국물은 항상 옳다. 나는야 국물파~</button>
-            <button onclick="prefCheck5()" class="btn btn-yellow" type="button"> 2. 국물 No No No! 저는 국물이 필요하지 않아요.</button>
+            <button onclick="prefCheck4()" class="btn btn-yellow" type="button"><a href="test3.html"> 1. 국물은 항상 옳다. 나는야 국물파~ </a></button>
+            <button onclick="prefCheck5()" class="btn btn-yellow" type="button"><a href="test3.html"> 2. 국물 No No No! 저는 국물이 필요하지 않아요. </a></button>
         </div>
     </div>
-
-    <button onclick="prefCheck()" class="btn btn-orange" type="submit"><b>음식 확인하기</b></button>
-    <button onclick="refresh()" class="btn btn-orange" type="submit">새로고침!</button>
 
 </div>
 
