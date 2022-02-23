@@ -62,7 +62,6 @@
                 url: "/pref2",
                 data: {spicy_give: 'y'},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -73,7 +72,6 @@
                 url: "/pref3",
                 data: {spicy_give:'n'},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -118,11 +116,10 @@
     <div>
         <h3> Q1. 그대는 매운 음식이 당기시나요? </h3>
         <div class="d-grid gap-2">
-            <button onclick="prefCheck2()" class="btn btn-yellow" type="button"> 1. 오늘은 화끈한 게 필요해! 매운 음식 GO!</button>
-            <button onclick="prefCheck3()" class="btn btn-yellow" type="button"> 2. 저는 맵찔이라서 매운게 싫어요.</button>
+            <button onclick="prefCheck2()" class="btn btn-yellow" type="button"> <a href="test2.html"> 1. 오늘은 화끈한 게 필요해! 매운 음식 GO!</a></button>
+            <button onclick="prefCheck3()" class="btn btn-yellow" type="button"><a href="test2.html"> 2. 저는 맵찔이라서 매운게 싫어요. </a></button>
         </div>
     </div>
-    <button class="btn btn-orange"><a href="test2.html"><b>질문 2번으로 가기</b></a></button>
 </div>
 
 </body>
