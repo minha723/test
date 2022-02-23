@@ -17,12 +17,15 @@ def test():
 def test2():
    return render_template('/test/test2.html')
 
+@app.route('/test/test3.html')
+def test3():
+   return render_template('/test/test3.html')
+
 @app.route('/pref', methods=['GET'])
 def test_food():
    target_food = db.foods.find_one({'누적': 2})
-   food_name = target_food['name']
-   print(food_name)
-   return jsonify({'result':'success', 'msg': '오늘의 추천 음식은 ' + food_name + '입니다. 테스트를 다시 하시려면 아래 새로고침을 눌러주세요.'})
+   return jsonify({'result':'success', 'foodName': target_food['name'],'foodImgUrl': target_food['img_url']})
+
 
 @app.route('/pref2', methods=['POST'])
 def like_spicy():
