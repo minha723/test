@@ -25,7 +25,6 @@
             text-align: center;
         }
 
-
         .btn {
             background-color: cornflowerblue;
             margin: auto;
@@ -36,14 +35,17 @@
         .btn-yellow{
             background-color: yellow;
         }
-
-        .btn-orange{
-            background-color: orange;
+        .card {
             display: block;
+            margin: auto;
         }
 
     </style>
     <script>
+
+            $(document).ready(function () {
+                prefCheck();
+            });
 
         function prefCheck() {
             $.ajax({
@@ -51,7 +53,18 @@
                 url: '/pref',
                 data: {},
                 success: function (response) {
-                    alert(response['msg']);
+                    let name = response['foodName']
+                    let img_url = response['foodImgUrl']
+
+                    let temp_html = `<div class="card" style="width: 18rem;">
+                                        <img src="${img_url}" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text">당신에게 필요한 오늘의 음식은 바로 <span style="color:red; font-weight:blod" > ${name} </span> 입니다.<br>다시 테스트 하시려면 아래 새로고침 버튼을 눌러주세요.</p>
+                                        </div>
+                                    </div>`
+
+                    $("#myFood").append(temp_html)
+
                 }
             })
         }
@@ -83,6 +96,7 @@
                 url: "/pref4",
                 data: {soup_give: 'y'},
                 success: function (response) {
+                    alert(response['msg']);
                 }
             })
         }
@@ -93,26 +107,7 @@
                 url: "/pref5",
                 data: {soup_give:'n'},
                 success: function (response) {
-                }
-            })
-        }
-
-        function prefCheck6() {
-            $.ajax({
-                type: "POST",
-                url: "/pref6",
-                data: {noodle_give:'y'},
-                success: function (response) {
-                }
-            })
-        }
-
-        function prefCheck7() {
-            $.ajax({
-                type: "POST",
-                url: "/pref7",
-                data: {noodle_give:'n'},
-                success: function (response) {
+                    alert(response['msg']);
                 }
             })
         }
@@ -122,7 +117,6 @@
                 url: "/reset",
                 data: {},
                 success: function (response) {
-                    alert(response['msg']);
                 }
             })
         }
@@ -134,13 +128,10 @@
 <div class="food">
     오늘도 어떤 음식을 먹을지 정하기 힘들죠? 저희와 함께 무엇을 먹을지 정하러 갑시다~
 
-    <div>
-        <h3> Q3. 면이 있는 음식이 당기시나요? </h3>
-        <div class="d-grid gap-2">
-            <button onclick="prefCheck6()" class="btn btn-yellow" type="button"><a href="test4.html"> 1. 면치기로 깔끔하게! 나는 면 있는 음식! </a></button>
-            <button onclick="prefCheck7()" class="btn btn-yellow" type="button"><a href="test4.html"> 2. 오늘 면은 별로, 나는 면 없는 음식 </a></button>
-        </div>
+    <div id=myFood class="card" style="width: 18rem;">
     </div>
+
+    <button onclick="refresh()" class="btn btn-primary" type="submit"><a href="http://localhost:5000/">새로고침!</a></button>
 
 </div>
 
