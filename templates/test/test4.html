@@ -116,6 +116,27 @@
                 }
             })
         }
+
+        function prefCheck8() {
+            $.ajax({
+                type: "POST",
+                url: "/pref8",
+                data: {alcohol_give:'소주'},
+                success: function (response) {
+                }
+            })
+        }
+
+        function prefCheck9() {
+            $.ajax({
+                type: "POST",
+                url: "/pref9",
+                data: {alcohol_give:'맥주'},
+                success: function (response) {
+                }
+            })
+        }
+
         function refresh() {
             $.ajax({
                 type: "POST",
@@ -135,10 +156,10 @@
     오늘도 어떤 음식을 먹을지 정하기 힘들죠? 저희와 함께 무엇을 먹을지 정하러 갑시다~
 
     <div>
-        <h3> Q3. 면이 있는 음식이 당기시나요? </h3>
+        <h3> Q4. 어떤 술과 어울리는 음식이 당기시나요? </h3>
         <div class="d-grid gap-2">
-            <button onclick="prefCheck6()" class="btn btn-yellow" type="button"><a href="test4.html"> 1. 면치기로 깔끔하게! 나는 면 있는 음식! </a></button>
-            <button onclick="prefCheck7()" class="btn btn-yellow" type="button"><a href="test4.html"> 2. 오늘 면은 별로, 나는 면 없는 음식 </a></button>
+            <button onclick="prefCheck8()" class="btn btn-yellow" type="button"><a href="result.html"> 1. 오늘은 소주 각이다! 소주랑 어울리는 음식!</a></button>
+            <button onclick="prefCheck9()" class="btn btn-yellow" type="button"><a href="result.html"> 2. 간단하게 맥주랑 어울리는 음식! </a></button>
         </div>
     </div>
 

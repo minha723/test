@@ -96,10 +96,30 @@
                 }
             })
         }
-        function refresh() {
+
+        function prefCheck6() {
             $.ajax({
                 type: "POST",
                 url: "/pref6",
+                data: {noodle_give:'y'},
+                success: function (response) {
+                }
+            })
+        }
+
+        function prefCheck7() {
+            $.ajax({
+                type: "POST",
+                url: "/pref7",
+                data: {noodle_give:'n'},
+                success: function (response) {
+                }
+            })
+        }
+        function refresh() {
+            $.ajax({
+                type: "POST",
+                url: "/reset",
                 data: {},
                 success: function (response) {
                     alert(response['msg']);
